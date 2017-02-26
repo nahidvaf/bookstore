@@ -10,16 +10,11 @@ What? A Contribe assignment test.
 `javac org/nahid/*/*.java  && java org.nahid.main.Main`
 
 ##Running the tests:
-* Testing the Book class
-..* `javac org/nahid/*/*.java && java -ea org.nahid.tests.TestBook`
-* Testing the GetFile class
-..* `javac org/nahid/*/*.java && java -ea org.nahid.tests.TestGetFile`
-* Testing the FileStock class (the class implementing BookList)
-..* `javac org/nahid/*/*.java && java -ea org.nahid.tests.TestFileStock`
-* Testing the buy() method of FileStock
-..* `javac org/nahid/*/*.java && java -ea org.nahid.tests.TestBuy`
-* Testing the ShoppingCart class
-..* `javac org/nahid/*/*.java && java -ea org.nahid.tests.TestShoppingCart`
+* Testing the Book class `javac org/nahid/*/*.java && java -ea org.nahid.tests.TestBook`
+* Testing the GetFile class `javac org/nahid/*/*.java && java -ea org.nahid.tests.TestGetFile`
+* Testing the FileStock class (the class implementing BookList) `javac org/nahid/*/*.java && java -ea org.nahid.tests.TestFileStock`
+* Testing the buy() method of FileStock `javac org/nahid/*/*.java && java -ea org.nahid.tests.TestBuy`
+* Testing the ShoppingCart class `javac org/nahid/*/*.java && java -ea org.nahid.tests.TestShoppingCart`
 
 #Original task requirements and description from employer:
 
