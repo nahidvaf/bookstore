@@ -25,6 +25,29 @@ public class Book {
 	return price;
     }
     @Override
+    public boolean equals(Object o){
+	if(! (o instanceof Book) ){
+	    return false;
+	}
+	Book ob = (Book)o;
+	return
+	    this.title.equals(ob.title) &&
+	    this.author.equals(ob.author) &&
+	    this.price.compareTo(ob.price) == 0;
+    }
+    @Override
+    public int hashCode(){
+	// I'm not an expert in hashing, so I'm using a
+	// hash function inspired by Joshua Bloch's Item 9
+	// "Always override hashCode when overriding equals"
+	// Source: http://ur1.ca/qkax7
+	int result = 17;
+	result = 31 * result + title.hashCode();
+	result = 31 * result + author.hashCode();
+	result = 31 * result + price.intValue();
+	return result;
+    }
+    @Override
     public String toString(){
 	// For some reason, the prices must be in US number format...
 	NumberFormat formatter = NumberFormat.getInstance(Locale.US);

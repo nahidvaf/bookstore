@@ -36,6 +36,12 @@ public class TestBook{
 	    "toString for large number-price failed. Got: "+b.toString()+ " Expected: "+
 	    "Monkeys;Java-wannabe;10,022.50";
 	System.out.println("done!");	
+	b = new Book("Computers","ComputerGuy", new BigDecimal(100.50));
+	Book b2 = new Book("Computers","ComputerGuy", new BigDecimal(100.50));
+	System.out.print("Testing equals...");
+	assert b.equals(b2) && b2.equals(b)
+	    : "Equals test failed.";
+	System.out.println(" Equals test passed!");	
 	System.err.println("Tests completed successfully.");
     }
 

@@ -12,4 +12,11 @@ public class StockEntry{
     public Book book () {return book;}
     public int numberInStock(){return numberInStock;}
     public String toString(){ return book + " " + numberInStock;}
+    public void decreaseStock(){
+	if(numberInStock > 0){
+	    numberInStock--;
+	}else{
+	    throw new IllegalStateException("Can't decrease the stock count when it's already zero.");
+	}
+    }
 }

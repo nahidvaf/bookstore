@@ -100,6 +100,22 @@ public class FileStock implements BookList{
 	}
 	return result.toArray(new Book[0]);
     }
+    public Book getBookByID(int id)throws NoSuchBookException{
+	if(!books.containsKey(new Integer(id))){
+	    throw new NoSuchBookException("Can't find book with ID " + id);
+	}
+	return books.get(id).book();
+	
+    }
+    
+    public int getID(Book b)throws NoSuchBookException{
+	for(Integer id : books.keySet()){
+	    if(books.get(id).book().equals(b)){
+		return id.intValue();
+	    }
+	}
+	throw new NoSuchBookException("Couldn't find " + b + " in the stock.");
+    }
     /* I interpreted the add method from the specification of the
      * interface BookList such that it only adds new book titles.
      * Therefore, it doesn't update the quantity for existing books.
@@ -114,11 +130,62 @@ public class FileStock implements BookList{
 	new BookFileWriter().writeBooks(books);
 	return true;
     }
-    public int[] buy(Book... books){
-	for(Book b : books){
-	    ;//TODO
+    private boolean stockContains(Book b){
+	if(b==null){
+	    return false;
 	}
-	return null;
+	for(StockEntry se : books.values()){
+	    if(b.equals(se.book())){
+		return true;
+	    }
+	}
+	return false;
+    }
+    public StockEntry getStockEntry(Book b){
+	for(StockEntry se : books.values()){
+	    if(se.book().equals(b)){
+		return se;
+	    }
+	}
+	return null; // Perhaps cleaner to throw an exception, but...
+    }
+    // This is how I guestimate that you want this function to work:
+    // buy(b1, b2, b3) ->
+    // create an array of three ints (same as number of books to buy),
+    // return the result of trying to but b1 in the array [0],
+    // the result of trying to buy b2 in the array[1] etc...
+    // If possible to buy, also decrease the quantity for this book
+    // in the stock.
+    public int[] buy(Book... books){
+	final int OK             = 0;
+	final int NOT_IN_STOCK   = 1;
+	final int DOES_NOT_EXIST = 2;
+	int[] statuses = new int[books.length];
+	int index=0;
+	/*
+	  The books HashMap has the IDs as keys, and StockEntry as values
+	 */
+	for(Book book: books){
+	    if(stockContains(book)){
+		StockEntry se = getStockEntry(book);
+		// Book exists, so check qty
+		if(se.numberInStock()!=0){
+		    statuses[index] = OK;
+		    // decrease qty in stock
+		    se.decreaseStock();
+		    // This would be a good place to call
+		    // some other module, like PlaceOrder/Payment or so.
+		}else{
+		    statuses[index] = NOT_IN_STOCK;
+		}
+	    }else{
+		// Unclear how someone tried to buy a non-existing
+		// book, but if they do, this is what happens ;-)
+		statuses[index] = DOES_NOT_EXIST;
+	    }	    
+	    index++;	    
+	}
+	return statuses;
     }
     
     public String toString(){
