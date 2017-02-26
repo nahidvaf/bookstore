@@ -1,27 +1,27 @@
 # bookstore
-contribe assignment
+What? A Contribe assignment test.
 
-Build and run:
+#Build and run:
 
-Fetching the file with the book inventory:
+##Fetching the file with the book inventory:
 `javac org/nahid/admin/GetFile.java && java org.nahid.admin.GetFile http://www.contribe.se/bookstoredata/bookstoredata.txt`
 
-The main "application" simulating a web shop CLI:
+##The main "application" simulating a web shop CLI:
 `javac org/nahid/*/*.java  && java org.nahid.main.Main`
 
-Running the tests:
+##Running the tests:
 * Testing the Book class
-** `javac org/nahid/*/*.java && java -ea org.nahid.tests.TestBook`
+..* `javac org/nahid/*/*.java && java -ea org.nahid.tests.TestBook`
 * Testing the GetFile class
-** `javac org/nahid/*/*.java && java -ea org.nahid.tests.TestGetFile`
+..* `javac org/nahid/*/*.java && java -ea org.nahid.tests.TestGetFile`
 * Testing the FileStock class (the class implementing BookList)
-** `javac org/nahid/*/*.java && java -ea org.nahid.tests.TestFileStock`
+..* `javac org/nahid/*/*.java && java -ea org.nahid.tests.TestFileStock`
 * Testing the buy() method of FileStock
-** `javac org/nahid/*/*.java && java -ea org.nahid.tests.TestBuy`
+..* `javac org/nahid/*/*.java && java -ea org.nahid.tests.TestBuy`
 * Testing the ShoppingCart class
-** `javac org/nahid/*/*.java && java -ea org.nahid.tests.TestShoppingCart`
+..* `javac org/nahid/*/*.java && java -ea org.nahid.tests.TestShoppingCart`
 
-Original task requirements and description from employer:
+#Original task requirements and description from employer:
 
 >The task is to in Java implement a bookstore. While browsing the store, the following information about the store shall be available; title, author and price.
 >
