@@ -6,7 +6,9 @@ import java.util.Arrays;
 
 import org.nahid.domain.*;
 import org.nahid.stock.*;
-/*
+/**
+ * Represents a simplified text-based menu system.
+ *
  * TODO: Perhaps a menu option 7 - Check out - which
  * calls "buy()". Not sure if this is needed?
  * buy() is implemented but never used.
@@ -14,10 +16,17 @@ import org.nahid.stock.*;
 public class TextMenu{
     BookList stock;
     ShoppingCart cart;
+    /**
+     * Creates a new TextMenu.
+     * @param stock The BookList representing the inventory.
+     */
     public TextMenu(BookList stock){
 	this.stock = stock;
 	cart = new ShoppingCart();
     }
+    /**
+     * Starts the menu.
+     */
     public void start(){
 	runMenu();
     }

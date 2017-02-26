@@ -9,6 +9,9 @@ What? A Contribe assignment test.
 ##The main "application" simulating a web shop CLI:
 `javac org/nahid/*/*.java  && java org.nahid.main.Main`
 
+## Javadoc:
+`javadoc -link http://docs.oracle.com/javase/8/docs/api -d doc org.nahid.domain org.nahid.stock org.nahid.admin org.nahid.main`
+
 ##Running the tests:
 * Testing the Book class `javac org/nahid/*/*.java && java -ea org.nahid.tests.TestBook`
 * Testing the GetFile class `javac org/nahid/*/*.java && java -ea org.nahid.tests.TestGetFile`

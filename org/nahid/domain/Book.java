@@ -4,26 +4,48 @@ import java.text.NumberFormat;
 import java.text.ParseException;
 import java.math.BigDecimal;
 
-//TODO: implement comparable
+
+/**
+ * Represents a Book in the book store.
+ *
+ * TODO: implement comparable
+ */
 public class Book {
     private String title;
     private String author;
     private BigDecimal price;
-
+    /**
+     * Creates a new Book.
+     * @param title The title of the book as a String
+     * @param author The Author of the book as a String
+     * @param price The price of the book as a BigDecimal
+     */
     public Book(String title, String author, BigDecimal price){
 	this.title  = title;
 	this.author = author;
 	this.price  = price;
     }
+    /**
+     * Returns the title of this Book
+     * @return the title of this Book as a String
+     */
     public String title(){
 	return title;
     }
+    /**
+     * Returns the autor of this Book
+     * @return the author of this Book as a String
+     */
     public String author(){
 	return author;
     }
+    /**
+     * Returns the price of this Book
+     * @return the price of this Book as a BigDecimal
+     */
     public BigDecimal price(){
 	return price;
-    }
+    }    
     @Override
     public boolean equals(Object o){
 	if(! (o instanceof Book) ){
